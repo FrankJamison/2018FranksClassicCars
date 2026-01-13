@@ -1,0 +1,3 @@
+# Local-only overrides (do not commit secrets)
+/includes/variables.local.inc.php
+/includes/variables.prod.inc.php
