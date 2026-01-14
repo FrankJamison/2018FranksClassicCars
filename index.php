@@ -2,7 +2,7 @@
 <html>
 
 <!-- HTML Head -->
-<?php require_once("./includes/htmlhead.inc.php"); ?>
+<?php require_once(__DIR__ . "/includes/htmlhead.inc.php"); ?>
 
 <body>
 	<div id="main">
@@ -11,7 +11,7 @@
 		<div id="header">
 
 			<!-- Page Logo -->
-			<?php require_once("./includes/logo.inc.php"); ?>
+			<?php require_once(__DIR__ . "/includes/logo.inc.php"); ?>
 
 			<!-- Page Navigation -->
 			<div id="menubar">
@@ -47,7 +47,7 @@
 		</div>
 
 		<!-- Page Footer -->
-		<?php require_once("./includes/footer.inc.php"); ?>
+		<?php require_once(__DIR__ . "/includes/footer.inc.php"); ?>
 
 	</div>
 </body>

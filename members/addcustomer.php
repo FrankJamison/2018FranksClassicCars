@@ -1,10 +1,10 @@
 <?php
 
 // Start and Check for Valid Session
-require_once("../includes/session.inc.php");
+require_once(__DIR__ . "/../includes/session.inc.php");
 
 // Include Functions
-require_once("../includes/functions.inc.php");
+require_once(__DIR__ . "/../includes/functions.inc.php");
 
 // Debug Flag
 $debug = false;
@@ -15,7 +15,7 @@ ini_set('display_errors', '0');
 $error_text = "\r";
 
 // Variable Include
-require_once("../includes/variables.inc.php");
+require_once(__DIR__ . "/../includes/variables.inc.php");
 
 // Connect to Database
 $dbc = mysqli_connect($host, $web_user, $pwd, $dbname)
@@ -358,7 +358,7 @@ $employeeNumberOptions = getDropdownList($dbc, $query, 'employeeNumber', $withNu
 <html>
 
 <!-- HTML Head Include -->
-<?php require_once("../includes/memberhtmlhead.inc.php"); ?>
+<?php require_once(__DIR__ . "/../includes/memberhtmlhead.inc.php"); ?>
 
 <body>
 	<div id="main">
@@ -367,7 +367,7 @@ $employeeNumberOptions = getDropdownList($dbc, $query, 'employeeNumber', $withNu
 		<div id="header">
 
 			<!-- Page Logo -->
-			<?php require_once("../includes/logo.inc.php"); ?>
+			<?php require_once(__DIR__ . "/../includes/logo.inc.php"); ?>
 
 			<!-- Page Navigation -->
 			<div id="menubar">
@@ -563,7 +563,7 @@ $employeeNumberOptions = getDropdownList($dbc, $query, 'employeeNumber', $withNu
 
 
 		<!-- Page Footer -->
-		<?php require_once("../includes/footer.inc.php"); ?>
+		<?php require_once(__DIR__ . "/../includes/footer.inc.php"); ?>
 
 	</div>
 </body>

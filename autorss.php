@@ -1,7 +1,7 @@
 <?php
 
 // Variable Include
-require_once("./includes/variables.inc.php");
+require_once(__DIR__ . "/includes/variables.inc.php");
 
 // Connection to Database
 $dbc = mysqli_connect($host, $web_user, $pwd, $dbname)

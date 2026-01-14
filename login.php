@@ -9,7 +9,7 @@ ini_set('display_errors', '1');
 $error_text = "\r";
 
 // Variable Include
-require_once("./includes/variables.inc.php");
+require_once(__DIR__ . "/includes/variables.inc.php");
 
 // Connect to Database
 $dbc = mysqli_connect($host, $web_user, $pwd, $dbname)
@@ -102,7 +102,7 @@ if (isset($_POST['submit'])) { // data posted
 <!doctype html>
 <html>
 <!-- HTML Head Section Include -->
-<?php require_once("./includes/htmlhead.inc.php"); ?>
+<?php require_once(__DIR__ . "/includes/htmlhead.inc.php"); ?>
 
 <body>
 	<div id="main">
@@ -111,7 +111,7 @@ if (isset($_POST['submit'])) { // data posted
 		<div id="header">
 
 			<!-- Page Logo -->
-			<?php require_once("./includes/logo.inc.php"); ?>
+			<?php require_once(__DIR__ . "/includes/logo.inc.php"); ?>
 
 			<!-- Page Navigation -->
 			<div id="menubar">
@@ -160,7 +160,7 @@ if (isset($_POST['submit'])) { // data posted
 		</div>
 
 		<!-- Page Footer -->
-		<?php require_once("./includes/footer.inc.php"); ?>
+		<?php require_once(__DIR__ . "/includes/footer.inc.php"); ?>
 	</div>
 </body>
 

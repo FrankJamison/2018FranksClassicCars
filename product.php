@@ -1,7 +1,7 @@
 <?php
 
 // Site Variables and Functions Includes
-require_once("./includes/variables.inc.php");
+require_once(__DIR__ . "/includes/variables.inc.php");
 
 // Connection to Database
 $dbc = mysqli_connect($host, $web_user, $pwd, $dbname)
@@ -67,7 +67,7 @@ if (isset($_GET['pid'])) {
 <html>
 
 <!-- HTML Head Include -->
-<?php require_once("./includes/htmlhead.inc.php"); ?>
+<?php require_once(__DIR__ . "/includes/htmlhead.inc.php"); ?>
 
 <body>
 	<div id="main">
@@ -76,7 +76,7 @@ if (isset($_GET['pid'])) {
 		<div id="header">
 
 			<!-- Page Logo -->
-			<?php require_once("./includes/logo.inc.php"); ?>
+			<?php require_once(__DIR__ . "/includes/logo.inc.php"); ?>
 
 			<!-- Page Navigation -->
 			<div id="menubar">
@@ -107,7 +107,7 @@ if (isset($_GET['pid'])) {
 		</div>
 
 		<!-- Page Footer -->
-		<?php require_once("./includes/footer.inc.php"); ?>
+		<?php require_once(__DIR__ . "/includes/footer.inc.php"); ?>
 
 	</div>
 </body>

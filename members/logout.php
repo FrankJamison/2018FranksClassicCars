@@ -1,6 +1,6 @@
 <?php
 // Start and Check for Valid Session
-require_once("../includes/session.inc.php");
+require_once(__DIR__ . "/../includes/session.inc.php");
 
 // Set Local Member Name to Say Goodbye
 $member_name = $_SESSION['member_name'];
@@ -25,14 +25,14 @@ header('Refresh: 8; ../index.php');
 <!DOCTYPE HTML>
 <html>
 
-<?php require_once("../includes/memberhtmlhead.inc.php"); ?>
+<?php require_once(__DIR__ . "/../includes/memberhtmlhead.inc.php"); ?>
 
 <body>
 	<div id="main">
 		<div id="header">
 
 			<!-- Page Logo -->
-			<?php require_once("../includes/logo.inc.php"); ?>
+			<?php require_once(__DIR__ . "/../includes/logo.inc.php"); ?>
 
 			<div id="menubar">
 				<ul id="menu">
@@ -60,7 +60,7 @@ header('Refresh: 8; ../index.php');
 		</div>
 
 		<!-- Page Footer -->
-		<?php require_once("../includes/footer.inc.php"); ?>
+		<?php require_once(__DIR__ . "/../includes/footer.inc.php"); ?>
 
 	</div>
 </body>

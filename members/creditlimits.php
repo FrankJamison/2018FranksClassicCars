@@ -1,9 +1,9 @@
 <?php
 // Start and Check for Valid Session
-require_once("../includes/session.inc.php");
+require_once(__DIR__ . "/../includes/session.inc.php");
 
 // Include Functions
-require_once("../includes/functions.inc.php");
+require_once(__DIR__ . "/../includes/functions.inc.php");
 
 
 // Suppress all error messages
@@ -12,7 +12,7 @@ ini_set('display_errors', 0);
 $error_text = "\r";
 
 // Variable Include
-require_once("../includes/variables.inc.php");
+require_once(__DIR__ . "/../includes/variables.inc.php");
 
 // Connect to Database
 $dbc = mysqli_connect($host, $web_user, $pwd, $dbname)
@@ -23,15 +23,16 @@ $numCustomers = countNumCustomers($dbc);
 $creditLimitArray = fillCreditLimitArray($dbc);
 $graphArray = fillGraphArray($creditLimitArray);
 $graphName = "../charts/charts-$numCustomers.png";
+$graphFilePath = __DIR__ . "/../charts/charts-$numCustomers.png";
 $graphScale = makeGraphScale($numCustomers);
-drawBarGraph(500, 400, $graphArray, $graphScale, $graphName);
+drawBarGraph(500, 400, $graphArray, $graphScale, $graphFilePath);
 ?>
 
 <!DOCTYPE HTML>
 <html>
 
 <!-- HTML Head Include -->
-<?php require_once("../includes/memberhtmlhead.inc.php"); ?>
+<?php require_once(__DIR__ . "/../includes/memberhtmlhead.inc.php"); ?>
 
 <body>
 	<div id="main">
@@ -40,7 +41,7 @@ drawBarGraph(500, 400, $graphArray, $graphScale, $graphName);
 		<div id="header">
 
 			<!-- Page Logo -->
-			<?php require_once("../includes/logo.inc.php"); ?>
+			<?php require_once(__DIR__ . "/../includes/logo.inc.php"); ?>
 
 			<!-- Page Navigation -->
 			<div id="menubar">
@@ -66,7 +67,7 @@ drawBarGraph(500, 400, $graphArray, $graphScale, $graphName);
 		</div>
 
 		<!-- Page Footer -->
-		<?php require_once("../includes/footer.inc.php"); ?>
+		<?php require_once(__DIR__ . "/../includes/footer.inc.php"); ?>
 
 	</div>
 </body>
