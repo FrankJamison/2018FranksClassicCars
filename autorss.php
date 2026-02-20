@@ -1,5 +1,4 @@
 <?php
-
 // Variable Include
 require_once(__DIR__ . "/includes/variables.inc.php");
 
@@ -43,7 +42,7 @@ $buildDate = gmdate(DATE_RSS, time());
 		<title><?= $productLine ?> RSS</title>
 		<atom:link href="http://<?= $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] ?>" rel="self"
 			type="application/rss+xml" />
-		<link>http://frankjamison.com/173WEB512/Final/index.php</link>
+		<link>https://classiccars.fcjamison.com/index.php</link>
 		<description><?= $productLine ?> RSS Feed</description>
 		<lastBuildDate><?= $buildDate ?></lastBuildDate>
 		<language>en-us</language>
@@ -81,8 +80,8 @@ $buildDate = gmdate(DATE_RSS, time());
 
 				<title><?php echo "$productCode - $productName"; ?></title>
 				<description><?= $productDescription ?></description>
-				<link>http://frankjamison.com/173WEB512/Final/product.php?pid=<?= $productCode ?></link>
-				<guid isPermaLink="false">http://frankjamison.com/173WEB512/Final/product.php?pid=<?= $productCode ?></guid>
+				<link>https://classiccars.fcjamison.com/product.php?pid=<?= $productCode ?></link>
+				<guid isPermaLink="false">https://classiccars.fcjamison.com/product.php?pid=<?= $productCode ?></guid>
 				<pubDate><?= $pubDate ?></pubDate>
 
 			</item>

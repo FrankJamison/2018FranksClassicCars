@@ -1,8 +1,10 @@
-# 2018 Frank's Classic Cars — PHP/MySQL Web App
+# Frank's Classic Cars
 
 A classic server-rendered PHP application that demonstrates end-to-end web development: database-backed catalog browsing, an employee-only area, RSS feed generation, and server-side charting.
 
 This repo is written to be readable in a code review and to showcase practical, “real app” concerns: configuration, sessions, data access, pagination, and environment-aware deployment.
+
+Live preview: https://classiccars.fcjamison.com/
 
 ## Quick Tour (for employers / recruiters)
 
@@ -29,13 +31,13 @@ This repo is written to be readable in a code review and to showcase practical, 
 - Create employee account: [createaccount.php](createaccount.php)
 - Employee login: [login.php](login.php)
 - RSS feed generator: [autorss.php](autorss.php)
-	- Uses a `pl` query parameter for product line selection (examples: `classic`, `vintage`, `motorcycle`).
+  - Uses a `pl` query parameter for product line selection (examples: `classic`, `vintage`, `motorcycle`).
 - Member area home: [members/index.php](members/index.php)
 - Member tools:
-	- Add customer: [members/addcustomer.php](members/addcustomer.php)
-	- Credit limits + chart: [members/creditlimits.php](members/creditlimits.php)
-	- Inventory listing + pagination: [members/inventory.php](members/inventory.php)
-	- Logout: [members/logout.php](members/logout.php)
+  - Add customer: [members/addcustomer.php](members/addcustomer.php)
+  - Credit limits + chart: [members/creditlimits.php](members/creditlimits.php)
+  - Inventory listing + pagination: [members/inventory.php](members/inventory.php)
+  - Logout: [members/logout.php](members/logout.php)
 
 ## Tech Stack
 
@@ -51,9 +53,9 @@ This repo is written to be readable in a code review and to showcase practical, 
 This codebase is intentionally “classic PHP” in structure:
 
 - `includes/` holds shared layout and app glue:
-	- configuration: [includes/variables.inc.php](includes/variables.inc.php)
-	- sessions/authorization gate for member pages: [includes/session.inc.php](includes/session.inc.php)
-	- reusable helpers (validation, pagination, chart generation): [includes/functions.inc.php](includes/functions.inc.php)
+  - configuration: [includes/variables.inc.php](includes/variables.inc.php)
+  - sessions/authorization gate for member pages: [includes/session.inc.php](includes/session.inc.php)
+  - reusable helpers (validation, pagination, chart generation): [includes/functions.inc.php](includes/functions.inc.php)
 
 ## Local Setup
 
@@ -62,8 +64,8 @@ This codebase is intentionally “classic PHP” in structure:
 - PHP 5.4+ (newer versions generally work; this codebase uses older-style patterns)
 - MySQL 5.6+
 - PHP extensions:
-	- `mysqli`
-	- `gd` (needed for server-side chart image generation)
+  - `mysqli`
+  - `gd` (needed for server-side chart image generation)
 
 ### Database
 
@@ -74,6 +76,9 @@ This codebase is intentionally “classic PHP” in structure:
 ### Configuration
 
 Database connection settings live in [includes/variables.inc.php](includes/variables.inc.php).
+
+Local/production overrides are supported via `includes/variables.local.inc.php` and `includes/variables.prod.inc.php`.
+These files are meant to be untracked (see [.gitignore](.gitignore)) so credentials do not end up in source control.
 
 Precedence (lowest → highest):
 
@@ -92,33 +97,17 @@ php -S 127.0.0.1:8000
 
 Then open `http://127.0.0.1:8000/`.
 
-## XAMPP VirtualHost (Windows)
+## Running under Apache (XAMPP/Laragon/WAMP)
 
-If `http://2018franksclassiccars.localhost/` shows the XAMPP dashboard, Apache isn’t mapped to this repo folder yet.
+If you prefer Apache instead of `php -S`, point an Apache VirtualHost (or DocumentRoot) at this repo folder.
 
-1. Confirm vhosts are enabled in `C:\xampp\apache\conf\httpd.conf`:
+Minimal checklist:
 
-```apache
-Include conf/extra/httpd-vhosts.conf
-```
+1. Map your Apache DocumentRoot to the repo root (the folder containing [index.php](index.php)).
+2. Ensure the target directory is readable by Apache and has `AllowOverride All` if you rely on `.htaccess` rules (this app does not require `.htaccess` by default).
+3. Browse to your configured site URL.
 
-2. Add this VirtualHost to `C:\xampp\apache\conf\extra\httpd-vhosts.conf`:
-
-```apache
-<VirtualHost *:80>
-	ServerName 2018franksclassiccars.localhost
-	DocumentRoot "D:/Websites/2026FCJamison/projects/2018FranksClassicCars"
-
-	<Directory "D:/Websites/2026FCJamison/projects/2018FranksClassicCars">
-		AllowOverride All
-		Require all granted
-	</Directory>
-</VirtualHost>
-```
-
-3. Restart Apache from the XAMPP Control Panel.
-
-Then browse: `http://2018franksclassiccars.localhost/index.php`.
+If you use a custom local hostname (for example `franksclassiccars.test`), you may also need a `hosts` file entry on your machine.
 
 ## RSS Feeds
 
@@ -140,5 +129,13 @@ This is a portfolio/learning codebase; if hardening it for production, the next 
 ## Troubleshooting
 
 - MySQL “Access denied”:
-	- Confirm your local MySQL username/password match your environment, or override them in `includes/variables.local.inc.php`.
-	- Confirm production mode is not enabled locally (`FCC_USE_PROD_CONFIG=1` / `FCC_ENV=production`).
+  - Confirm your local MySQL username/password match your environment, or override them in `includes/variables.local.inc.php`.
+  - Confirm production mode is not enabled locally (`FCC_USE_PROD_CONFIG=1` / `FCC_ENV=production`).
+
+## VS Code
+
+This repo includes a VS Code task:
+
+- **Open in Browser**: opens the site locally at http://franksclassiccars.localhost/
+
+If you want the task to open the live preview instead, edit [.vscode/tasks.json](.vscode/tasks.json) and replace the URL with `https://classiccars.fcjamison.com/`.
